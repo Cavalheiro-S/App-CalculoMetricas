@@ -1,49 +1,41 @@
-import { Component } from "react";
 import { Box } from "@material-ui/system";
+import React, { useState } from "react";
 import CardMargens from "../CardMargens";
 import CardResult from "../CardResult";
 
 
-export default class CardMain extends Component{
+export default function CardMain(){
 
-    constructor(props){
-        super(props)
+    const [margemBruta,setMargemBruta] = useState(0);
+    const [margemOperacional, setMargemOperacional] = useState(0);
+    const [margemLiquida, setMargemLiquida] = useState(0);
 
-        this.margemBruta = null;
-        this.margemOperacional = null;
-        this.margemLiquida = null;
 
-        this.state = {
-            margemBruta:this.margemBruta,
-            margemOperacional:this.margemOperacional,
-            margemLiquida:this.margemLiquida,
+    function validacao(value){
+
+        if(value.length <= 3){
+
+            return [true,"Número de carácteres inválido"]
         }
+
+        return [false,""]
     }
 
 
-    takeResult(result){
+    function takeResult(result){
 
-        this.margemBruta = result.margemBruta.toFixed(2);
-        this.margemOperacional = result.margemOperacional.toFixed(2);
-        this.margemLiquida = result.margemLiquida.toFixed(2);
-
-        this.setState({
-            margemBruta:this.margemBruta,
-            margemOperacional:this.margemOperacional,
-            margemLiquida:this.margemLiquida,
-        })
-
+        setMargemBruta(result.margemBruta);
+        setMargemOperacional(result.margemOperacional);
+        setMargemLiquida(result.margemLiquida);
     }
 
-    render(){
 
-        return(
-            <Box sx={{height:"500px",width:"50%", display:"flex",alignItems:"center", justifyContent:"space-around"}}>
-                <CardMargens takeResult={this.takeResult.bind(this)}/>
-                <CardResult margemBruta={this.margemBruta}
-                margemOperacional={this.margemOperacional}
-                margemLiquida={this.margemLiquida}/>
-            </Box>
-        )
-    }
+    return(
+        <Box sx={{height:"500px",width:"50%", display:"flex",alignItems:"center", justifyContent:"space-around"}}>
+            <CardMargens validacao={validacao} takeResult={takeResult}/>
+            <CardResult margemBruta={margemBruta}
+            margemOperacional={margemOperacional}
+            margemLiquida={margemLiquida}/>
+        </Box>
+    )
 }
