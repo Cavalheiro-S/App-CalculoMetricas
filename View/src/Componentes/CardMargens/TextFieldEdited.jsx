@@ -11,6 +11,7 @@ export default function TextFieldEdited({value,id,label,validacao,setField}){
             label={label}
             error={erro.value}
             helperText={erro.message}
+            size="medium"
             onChange={e => {
                 setField(e.target.value)
             }}

@@ -31,7 +31,7 @@ export default function CardMain(){
 
 
     return(
-        <Box sx={{height:"500px",width:"50%", display:"flex",alignItems:"center", justifyContent:"space-around"}}>
+        <Box sx={{height:"500px", display:"flex",alignItems:"center", justifyContent:"space-around"}}>
             <CardMargens validacao={validacao} takeResult={takeResult}/>
             <CardResult margemBruta={margemBruta}
             margemOperacional={margemOperacional}

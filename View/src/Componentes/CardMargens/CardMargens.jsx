@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Box, Button } from "@material-ui/core";
+import { Box, Button, Typography } from "@material-ui/core";
 import TextFieldEdited from "./TextFieldEdited";
 
 export default function CardMargens({takeResult,validacao}) {
@@ -36,8 +36,10 @@ export default function CardMargens({takeResult,validacao}) {
     }
 
     return (
-        <Box sx={{ width: "300px", backgroundColor: "#f4f4f4", padding: "0px 20px", borderRadius: "10px", boxSizing: "border-box" }}>
+        <Box sx={{ width: "300px", backgroundColor: "#f4f4f4", padding: "0px 20px", borderRadius: "10px 0px 0px 10px" , borderRight:"1px solid #c4c4c4", boxSizing: "border-box" }}>
             <Box sx={{ height: "500px", display: "flex", flexDirection: "column", justifyContent: "space-around" }}>
+                <Typography sx={{fontWeight:"lighter"}} variant="h5"> Digite os dados:</Typography>
+
                 <TextFieldEdited value={receitaBruta} id={"receitaBruta"} label={"Digite a Receita Bruta"} 
                 validacao={validacao}
                 setField={setReceitaBruta}
