@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Box, Button, Typography } from "@material-ui/core";
 import TextFieldEdited from "./TextFieldEdited";
 
-export default function CardMargens({takeResult,validacao}) {
+export default function CardMargens({takeResult}) {
 
     const [receitaBruta, setReceitaBruta] = useState("");
     const [receitaLiquida, setReceitaLiquida] = useState("");
@@ -41,26 +41,21 @@ export default function CardMargens({takeResult,validacao}) {
                 <Typography sx={{fontWeight:"lighter"}} variant="h5"> Digite os dados:</Typography>
 
                 <TextFieldEdited value={receitaBruta} id={"receitaBruta"} label={"Digite a Receita Bruta"} 
-                validacao={validacao}
                 setField={setReceitaBruta}
                 />
                 <TextFieldEdited value={receitaLiquida} id={"receitaLiquida"} label={"Digite a Receita Líquida"} 
-                validacao={validacao}
                 setField={setReceitaLiquida}
                 />
                 
                 <TextFieldEdited value={lucroBruto} id={"lucroBruto"} label={"Digite o Lucro Bruto"} 
-                validacao={validacao}
                 setField={setlucroBruto}
                 />
                 
                 <TextFieldEdited value={lucroOperacional} id={"lucroOperacional"} label={"Digite o Lucro Operacional"} 
-                validacao={validacao}
                 setField={setlucroOperacional}
                 />
                 
                 <TextFieldEdited value={lucroLiquido} id={"lucroLiquido"} label={"Digite a Lucro Liquido"} 
-                validacao={validacao}
                 setField={setlucroLiquido}
                 />
                 

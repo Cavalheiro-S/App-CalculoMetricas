@@ -2,7 +2,7 @@ import { Box } from "@material-ui/system";
 import React, { useState } from "react";
 import CardMargens from "../CardMargens";
 import CardResult from "../CardResult";
-
+import Validation from "../../contexts/validation.js";
 
 export default function CardMain(){
 
@@ -32,10 +32,14 @@ export default function CardMain(){
 
     return(
         <Box sx={{height:"500px", display:"flex",alignItems:"center", justifyContent:"space-around"}}>
-            <CardMargens validacao={validacao} takeResult={takeResult}/>
-            <CardResult margemBruta={margemBruta}
-            margemOperacional={margemOperacional}
-            margemLiquida={margemLiquida}/>
+            <Validation.Provider value={validacao}> 
+                <CardMargens takeResult={takeResult}/>
+            </Validation.Provider>
+            <CardResult 
+                margemBruta={margemBruta}
+                margemOperacional={margemOperacional}
+                margemLiquida={margemLiquida}
+            />
         </Box>
     )
 }
